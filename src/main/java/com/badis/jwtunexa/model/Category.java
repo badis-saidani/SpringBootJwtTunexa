@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="categories")
 public class Category {
@@ -34,6 +37,7 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
+	@JsonIgnore
 	public Collection<Product> getProducts() {
 		return products;
 	}

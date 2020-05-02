@@ -19,6 +19,7 @@ import javax.persistence.Table;
 
 import org.springframework.lang.Nullable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -40,10 +41,9 @@ public class Product implements Serializable{
             mappedBy = "product")
 	@JsonIgnoreProperties("product")
 	private FileModel fileModel;
-	
+
 	private String description;
 	@ManyToOne
-	@JsonIgnoreProperties("products")
 	private Category category;
 	@OneToMany(mappedBy="product", cascade =  CascadeType.ALL, fetch = FetchType.LAZY)
 	private Collection<Devis> devises;
@@ -87,6 +87,7 @@ public class Product implements Serializable{
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+	@JsonIgnore
 	public Collection<Devis> getDevises() {
 		return devises;
 	}

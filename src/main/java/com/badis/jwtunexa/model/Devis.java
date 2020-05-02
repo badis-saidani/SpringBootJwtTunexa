@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -20,7 +21,6 @@ public class Devis {
 	private String tel;
 	private int quantity;
 	@ManyToOne
-	@JsonIgnoreProperties("devises")
 	private Product product;
 	public Long getId() {
 		return id;
@@ -46,13 +46,13 @@ public class Devis {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	
 	public int getQuantity() {
 		return quantity;
 	}
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+	@JsonIgnore
 	public Product getProduct() {
 		return product;
 	}
