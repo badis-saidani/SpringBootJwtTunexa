@@ -97,11 +97,11 @@ public class Product implements Serializable{
 	
 	
 
-	
-	  public FileModel getFileModel() { return fileModel; }
+	@JsonIgnore
+	public FileModel getFileModel() { return fileModel; }
 	  
 	  
-	  public void setFileModel(FileModel fileModel) { this.fileModel = fileModel; }
+	public void setFileModel(FileModel fileModel) { this.fileModel = fileModel; }
 	 
 
 	public String getDescription() {

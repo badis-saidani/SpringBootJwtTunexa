@@ -52,7 +52,6 @@ public class Devis {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	@JsonIgnore
 	public Product getProduct() {
 		return product;
 	}
